@@ -1,0 +1,12 @@
+<p>hello from webc!</p>
+
+<style webc:scoped>
+	:host {
+		color: tomato;
+		font-size: 1.5rem;
+	}
+</style>
+
+<script>
+	console.log('hi from inside webc script');
+</script>

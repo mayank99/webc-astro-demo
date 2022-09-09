@@ -1,13 +1,35 @@
 ---
+import { WebC } from '@11ty/webc';
+
+let page = new WebC();
+
+page.defineComponents('**/*.webc');
+// page.setInputPath(new URL('../webc/page.webc', import.meta.url)); // this doesn't seem to work in prod
+page.setContent(`
+	<my-component></my-component>
+	<my-component></my-component>
+`);
+
+const { html, css, js, components } = await page.compile();
+console.log(components);
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>web-demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="color-scheme" content="light dark" />
+		<title>webc-demo</title>
+		<style>
+			body {
+				font-family: system-ui, sans-serif;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>hello</h1>
+		<h1>hello from astro</h1>
+		<div id='root' set:html={html}></div>
+		<style set:html={css} />
+		<!-- <script is:inline type="module" set:html={js} /> -->
 	</body>
 </html>
