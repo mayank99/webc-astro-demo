@@ -1,19 +1,19 @@
 {
-  "name": "@example/minimal",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@11ty/webc": "^0.1.0",
-    "astro": "^1.1.8"
-  },
-  "devDependencies": {
-    "@types/node": "^18.7.16"
-  }
+	"name": "@example/minimal",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@11ty/webc": "^0.1.1",
+		"astro": "^1.1.8"
+	},
+	"devDependencies": {
+		"@types/node": "^18.7.16"
+	}
 }
