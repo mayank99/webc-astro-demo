@@ -1,17 +1,5 @@
 ---
-import { WebC } from '@11ty/webc';
-// import pageUrl from '../webc/page.webc';
-
-const page = new WebC();
-page.defineComponents('**/*.webc');
-// page.setInputPath(pageUrl);
-
-page.setContent(`
-	<my-component></my-component>
-`);
-
-const { html, css, js, components } = await page.compile();
-console.log(components);
+import { html, css, js, components } from '~/webc';
 ---
 
 <html lang="en">
