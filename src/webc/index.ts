@@ -1,4 +1,4 @@
-import __dirname from '~/__dirname';
+import __dirname from '__dirname';
 import { WebC } from '@11ty/webc';
 import pageUrl from './page.webc';
 import myComponentPath from './my-component.webc';
