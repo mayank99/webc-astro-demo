@@ -1,0 +1,15 @@
+<p>This is some <span>spicy</span> text</p>
+
+<style webc:scoped>
+	:host {
+		font-size: 1.4rem;
+		font-style: italic;
+	}
+	:host span {
+		background: linear-gradient(to right, tomato, orange);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		font-weight: 600;
+	}
+</style>

@@ -1,5 +1,5 @@
 ---
-import { html, css, js, components } from '~/webc';
+import Webc from '~/webc/Webc.astro';
 ---
 
 <html lang="en">
@@ -16,8 +16,6 @@ import { html, css, js, components } from '~/webc';
 	</head>
 	<body>
 		<h1>hello from astro</h1>
-		<div id='root' set:html={html}></div>
-		<style set:html={css} />
-		<!-- <script is:inline type="module" set:html={js} /> -->
+		<Webc />
 	</body>
 </html>

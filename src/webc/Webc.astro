@@ -1,0 +1,33 @@
+---
+import __dirname from '__dirname';
+import { WebC } from '@11ty/webc';
+import pageUrl from '~/webc/page.webc';
+import path from 'path';
+
+const page = new WebC();
+
+const webcGlob = await Astro.glob('/**/*.webc');
+const webcFiles = Object.fromEntries(
+	webcGlob.flatMap(({ default: relativePath }) => {
+		const fileName = relativePath.split('/').at(-1); // grab the last part of the path
+		const fileNameWithoutHash = fileName.split('.')[0]; // remove hash and extension
+		const isComponent = fileNameWithoutHash.includes('-'); // web components must have a dash
+
+		return isComponent
+			? [[fileNameWithoutHash, path.join(__dirname, relativePath)]]
+			: [];
+	})
+);
+
+page.setInputPath(path.join(__dirname, pageUrl));
+page.defineComponents(webcFiles);
+
+const { html, css, js: escapedJs } = await page.compile();
+
+// i don't know a better way to unescape the js 😔
+const js = decodeURI(escapedJs);
+---
+
+<div id='root' set:html={html}></div>
+<style set:html={css}></style>
+<script set:html={js}></script>

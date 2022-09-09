@@ -1,0 +1,30 @@
+<h2>hello from webc!</h2>
+
+<style webc:scoped>
+	:host {
+		color: tomato;
+		font-size: 2rem;
+	}
+</style>
+
+<script>
+	console.log('hi from inside webc script');
+	customElements.define(
+		'my-h2',
+		class extends HTMLElement {
+			constructor() {
+				super();
+				this.attachShadow({ mode: 'open' });
+				this.shadowRoot.innerHTML = `
+				<style>
+					:host {
+						color: tomato;
+						font-size: 1.5rem;
+					}
+				</style>
+				<p>hello from webc!</p>
+			`;
+			}
+		}
+	);
+</script>
