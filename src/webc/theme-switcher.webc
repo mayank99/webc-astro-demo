@@ -26,11 +26,13 @@
 		class extends HTMLElement {
 			connectedCallback() {
 				const button = this.querySelector('button');
-				button.onclick = () => {
-					const html = document.documentElement;
-					html.dataset.theme =
-						html.dataset.theme === 'light' ? 'dark' : 'light';
-				};
+				button.addEventListener('click', () => {
+					const htmlEl = document.documentElement;
+					const { matches: prefersDark } = window.matchMedia('(prefers-color-scheme: dark)');
+					const currentTheme = htmlEl.dataset.theme ?? (prefersDark ? 'dark' : 'light');
+
+					htmlEl.dataset.theme = currentTheme === 'light' ? 'dark' : 'light';
+				});
 			}
 		}
 	);
