@@ -1,0 +1,37 @@
+<button>Change theme</button>
+
+<style webc:scoped>
+	:host {
+		position: fixed;
+		right: 0;
+		top: 0;
+	}
+
+	button {
+		background-color: transparent;
+		border-color: transparent;
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		cursor: pointer;
+	}
+
+	button:hover {
+		background-color: hsl(0 0% 50% / 0.2);
+	}
+</style>
+
+<script>
+	customElements.define(
+		'theme-switcher',
+		class extends HTMLElement {
+			connectedCallback() {
+				const button = this.querySelector('button');
+				button.onclick = () => {
+					const html = document.documentElement;
+					html.dataset.theme =
+						html.dataset.theme === 'light' ? 'dark' : 'light';
+				};
+			}
+		}
+	);
+</script>
