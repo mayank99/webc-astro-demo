@@ -8,14 +8,19 @@ import Webc from '~/webc/Webc.astro';
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="color-scheme" content="light dark" />
 		<title>webc-demo</title>
-		<style>
-			body {
-				font-family: system-ui, sans-serif;
-			}
-		</style>
 	</head>
 	<body>
 		<h1>hello from astro</h1>
 		<Webc />
+
+		<style>
+			body {
+				font-family: system-ui, sans-serif;
+				height: 100vh;
+				display: grid;
+				align-content: start;
+				place-items: center;
+			}
+		</style>
 	</body>
 </html>
