@@ -13,13 +13,25 @@ import Webc from '~/webc/Webc.astro';
 		<h1>hello from astro</h1>
 		<Webc />
 
-		<style>
+		<style is:global>
+			* {
+				box-sizing: border-box;
+			}
 			body {
 				font-family: system-ui, sans-serif;
 				height: 100vh;
 				display: grid;
 				align-content: start;
 				place-items: center;
+				padding: 2rem 1rem;
+			}
+
+			[data-theme='light'] {
+				color-scheme: light;
+			}
+
+			[data-theme='dark'] {
+				color-scheme: dark;
 			}
 		</style>
 	</body>
