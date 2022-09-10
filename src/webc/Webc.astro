@@ -24,8 +24,7 @@ page.defineComponents(webcFiles);
 
 const { html, css, js: escapedJs } = await page.compile();
 
-// i don't know a better way to unescape the js 😔
-const js = decodeURI(escapedJs);
+const js = escapedJs.map(_js => decodeURI(_js)).join('');
 ---
 
 <div id='root' set:html={html}></div>
