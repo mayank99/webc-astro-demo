@@ -22,11 +22,9 @@ const webcFiles = Object.fromEntries(
 page.setInputPath(path.join(__dirname, pageUrl));
 page.defineComponents(webcFiles);
 
-const { html, css, js: escapedJs } = await page.compile();
-
-const js = escapedJs.map(_js => decodeURI(_js)).join('');
+const { html, css, js } = await page.compile();
 ---
 
 <div id='root' set:html={html}></div>
 <style set:html={css}></style>
-<script set:html={js}></script>
+<script set:html={js.join('')}></script>
